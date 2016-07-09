@@ -1,5 +1,6 @@
 package com.fanyafeng.frescopicload.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -41,4 +42,13 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+            case R.id.btnOperate1://app内图片加载
+                startActivity(new Intent(this, AppPicLoadActivity.class));
+                break;
+        }
+    }
 }

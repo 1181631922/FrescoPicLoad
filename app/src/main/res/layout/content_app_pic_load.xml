@@ -4,13 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.fanyafeng.frescopicload.activity.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context="com.fanyafeng.frescopicload.activity.AppPicLoadActivity"
+    tools:showIn="@layout/activity_app_pic_load">
 
     <!--需要v4或者v7包，不过一般as创建的工程都默认存在,此处采用滑动嵌套布局，为了解决滑动冲突-->
     <LinearLayout
@@ -18,12 +14,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnOperate1"
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdv1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="@string/title_activity_app_pic_load" />
+            android:layout_height="wrap_content" />
 
 
     </LinearLayout>
