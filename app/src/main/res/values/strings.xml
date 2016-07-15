@@ -3,4 +3,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">Fresco配置</string>
     <string name="title_activity_app_pic_load">App内图片加载</string>
+    <string name="title_activity_app_gif_pic_load">App内Gif图片加载</string>
 </resources>

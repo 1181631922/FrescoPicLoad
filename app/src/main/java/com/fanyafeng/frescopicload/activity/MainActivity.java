@@ -49,6 +49,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnOperate1://app内图片加载
                 startActivity(new Intent(this, AppPicLoadActivity.class));
                 break;
+            case R.id.btnOperate2:
+                startActivity(new Intent(this, AppGifPicLoadActivity.class));
+                break;
         }
     }
 }

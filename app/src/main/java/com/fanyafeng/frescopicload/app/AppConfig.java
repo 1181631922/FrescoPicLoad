@@ -3,6 +3,7 @@ package com.fanyafeng.frescopicload.app;
 import android.app.Application;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.fanyafeng.frescopicload.util.frscoutil.FrescoConfig;
 
 /**
  * Author： fanyafeng
@@ -13,6 +14,6 @@ public class AppConfig extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fresco.initialize(this);
+        Fresco.initialize(this, FrescoConfig.getsImagePipelineConfig(this));
     }
 }
