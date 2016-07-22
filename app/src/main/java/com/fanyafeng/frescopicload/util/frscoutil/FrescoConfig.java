@@ -93,7 +93,7 @@ public class FrescoConfig {
                 .setMaxCacheSize(FrescoConfig.MAX_DISK_CACHE_SIZE)                    //默认缓存的最大大小
                 .setMaxCacheSizeOnLowDiskSpace(MAX_SMALL_DISK_LOW_CACHE_SIZE)         //使用设备低磁盘空间时，缓存的最大大小
                 .setMaxCacheSizeOnVeryLowDiskSpace(MAX_SMALL_DISK_VERYLOW_CACHE_SIZE)       //当磁盘极低的空间时，缓存的最大大小
-//                .setVersion()
+//                .setVersion()默认为1
                 .build();
 
         //        默认图片的磁盘配置
@@ -127,7 +127,7 @@ public class FrescoConfig {
 //        	  .setPoolFactory(poolFactory)//线程池工厂配置
 //        	  .setProgressiveJpegConfig(progressiveJpegConfig)//渐进式JPEG图
 //        	  .setRequestListeners(requestListeners)//图片请求监听
-        	  .setResizeAndRotateEnabledForNetwork(true)//调整和旋转是否支持网络图片
+                .setResizeAndRotateEnabledForNetwork(true)//调整和旋转是否支持网络图片
                 .setSmallImageDiskCacheConfig(diskSmallCacheConfig)//磁盘缓存配置（小图片，可选～三级缓存的小图优化缓存）
                 ;
         return configBuilder.build();
