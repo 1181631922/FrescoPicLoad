@@ -34,6 +34,11 @@
             android:name=".activity.AppGifPicLoadActivity"
             android:label="@string/title_activity_app_gif_pic_load"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.CirclePicActivity"
+            android:label="@string/title_activity_circle_pic"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

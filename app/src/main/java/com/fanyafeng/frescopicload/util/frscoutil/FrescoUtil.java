@@ -1,10 +1,14 @@
 package com.fanyafeng.frescopicload.util.frscoutil;
 
+import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -14,6 +18,26 @@ import com.facebook.drawee.view.SimpleDraweeView;
  * Email: fanyafeng@live.cn
  */
 public class FrescoUtil {
+
+    private static GenericDraweeHierarchy genericDraweeHierarchy;
+
+    /**
+     * 淡入淡出动画效果
+     *
+     * @param context
+     * @return
+     */
+    public static GenericDraweeHierarchy getGenericDraweeHierarchy(Context context) {
+        if (genericDraweeHierarchy == null) {
+            genericDraweeHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
+                    .setRoundingParams(RoundingParams.asCircle())
+                    .setFadeDuration(300)
+                    .build();
+        }
+        return genericDraweeHierarchy;
+    }
+
+
     /**
      * 加载app内非动图
      *
@@ -21,7 +45,7 @@ public class FrescoUtil {
      * @param resId            资源比例
      * @param aspectRatio      图片长宽比例
      */
-    public static void loadPicInApp(@NonNull SimpleDraweeView simpleDraweeView,@NonNull int resId, float aspectRatio) {
+    public static void loadPicInApp(@NonNull SimpleDraweeView simpleDraweeView, @NonNull int resId, float aspectRatio) {
         if (simpleDraweeView == null)
             return;
         Uri uri = new Uri.Builder()
@@ -40,7 +64,7 @@ public class FrescoUtil {
      * @param simpleDraweeView
      * @param resId
      */
-    public static void loadPicInApp(@NonNull SimpleDraweeView simpleDraweeView,@NonNull int resId) {
+    public static void loadPicInApp(@NonNull SimpleDraweeView simpleDraweeView, @NonNull int resId) {
         if (simpleDraweeView == null)
             return;
         Uri uri = new Uri.Builder()
@@ -55,7 +79,7 @@ public class FrescoUtil {
      * @param resId
      * @param aspectRatio
      */
-    public static void loadGifPicInApp(@NonNull SimpleDraweeView simpleDraweeView,@NonNull int resId, float aspectRatio) {
+    public static void loadGifPicInApp(@NonNull SimpleDraweeView simpleDraweeView, @NonNull int resId, float aspectRatio) {
         if (simpleDraweeView == null) {
             return;
         }
@@ -77,7 +101,7 @@ public class FrescoUtil {
      * @param simpleDraweeView
      * @param resId
      */
-    public static void loadGifPicInApp(@NonNull SimpleDraweeView simpleDraweeView,@NonNull int resId) {
+    public static void loadGifPicInApp(@NonNull SimpleDraweeView simpleDraweeView, @NonNull int resId) {
         if (simpleDraweeView == null) {
             return;
         }

@@ -1,6 +1,5 @@
 package com.fanyafeng.frescopicload.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,19 +7,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.BaseActivity;
+import com.fanyafeng.frescopicload.constant.PicUrlConstants;
+import com.fanyafeng.frescopicload.util.frscoutil.FrescoUtil;
 
 //需要搭配baseactivity，这里默认为baseactivity,并且默认Baseactivity为包名的根目录
-public class MainActivity extends BaseActivity {
+public class CirclePicActivity extends BaseActivity {
+    private SimpleDraweeView advCircle1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_circle_pic);
 //这里默认使用的是toolbar的左上角标题，如果需要使用的标题为中心的采用下方注释的代码，将此注释掉即可
-//        title = getString(R.string.title_activity_main);
-        isSetNavigationIcon = false;
+        title = getString(R.string.title_activity_circle_pic);
 
         initView();
         initData();
@@ -29,11 +31,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        toolbar_center_title.setText(getString(R.string.title_activity_main));
+        //toolbar_center_title.setText(getString(R.string.title_activity_circle_pic));
     }
 
     //初始化UI空间
     private void initView() {
+        advCircle1 = (SimpleDraweeView) findViewById(R.id.advCircle1);
+        advCircle1.setHierarchy(FrescoUtil.getGenericDraweeHierarchy(this));
+        advCircle1.setImageURI(PicUrlConstants.imgUrl);
 
     }
 
@@ -42,19 +47,4 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        switch (v.getId()) {
-            case R.id.btnOperate1://app内图片加载
-                startActivity(new Intent(this, AppPicLoadActivity.class));
-                break;
-            case R.id.btnOperate2:
-                startActivity(new Intent(this, AppGifPicLoadActivity.class));
-                break;
-            case R.id.btnOperate3:
-                startActivity(new Intent(this, CirclePicActivity.class));
-                break;
-        }
-    }
 }
