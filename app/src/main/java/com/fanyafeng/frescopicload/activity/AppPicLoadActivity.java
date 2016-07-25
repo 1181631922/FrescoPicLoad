@@ -5,9 +5,7 @@ import android.os.Bundle;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.BaseActivity;
-import com.fanyafeng.frescopicload.util.MyUtils;
-import com.fanyafeng.frescopicload.util.frscoutil.ControllerListenerUtil;
-import com.fanyafeng.frescopicload.util.frscoutil.FrescoUtil;
+import com.fanyafeng.frescopicload.util.FrescoUtil;
 
 //需要搭配baseactivity，这里默认为baseactivity,并且默认Baseactivity为包名的根目录
 public class AppPicLoadActivity extends BaseActivity {

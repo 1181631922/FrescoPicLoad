@@ -19,6 +19,25 @@
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/advCircle2"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/advCircle3"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/advCircle4"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/advCircle5"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -1,22 +1,11 @@
 package com.fanyafeng.frescopicload.activity;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
-import com.facebook.common.util.UriUtil;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.request.ImageRequest;
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.BaseActivity;
-import com.fanyafeng.frescopicload.util.frscoutil.FrescoConfig;
-import com.fanyafeng.frescopicload.util.frscoutil.FrescoUtil;
+import com.fanyafeng.frescopicload.util.FrescoUtil;
 
 //需要搭配baseactivity，这里默认为baseactivity,并且默认Baseactivity为包名的根目录
 public class AppGifPicLoadActivity extends BaseActivity {

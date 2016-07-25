@@ -1,4 +1,4 @@
-package com.fanyafeng.frescopicload.util.frscoutil;
+package com.fanyafeng.frescopicload.util;
 
 import android.content.Context;
 import android.net.Uri;
@@ -18,25 +18,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
  * Email: fanyafeng@live.cn
  */
 public class FrescoUtil {
-
-    private static GenericDraweeHierarchy genericDraweeHierarchy;
-
-    /**
-     * 淡入淡出动画效果
-     *
-     * @param context
-     * @return
-     */
-    public static GenericDraweeHierarchy getGenericDraweeHierarchy(Context context) {
-        if (genericDraweeHierarchy == null) {
-            genericDraweeHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
-                    .setRoundingParams(RoundingParams.asCircle())
-                    .setFadeDuration(300)
-                    .build();
-        }
-        return genericDraweeHierarchy;
-    }
-
 
     /**
      * 加载app内非动图
