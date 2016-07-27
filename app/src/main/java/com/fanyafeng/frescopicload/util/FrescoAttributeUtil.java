@@ -2,6 +2,7 @@ package com.fanyafeng.frescopicload.util;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.CompoundButtonCompat;
 
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
@@ -104,10 +105,44 @@ public class FrescoAttributeUtil {
         return circleRadiusRingHierarchy;
     }
 
+    /**
+     * 加载图片过程中动图progressbar显示，可以为动画图，也可以为非动图
+     *
+     * @param context
+     * @param resId
+     * @return
+     */
     public static GenericDraweeHierarchy setProgressBarHierarchy(Context context, int resId) {
         GenericDraweeHierarchy progressBarDraweeHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
                 .setProgressBarImage(ContextCompat.getDrawable(context, resId))
                 .build();
         return progressBarDraweeHierarchy;
     }
+
+    /**
+     * 加载图片过程中动图progressbar显示，可以为动画图，也可以为非动图
+     * 图片为言行图片
+     *
+     * @param context
+     * @param resId
+     * @return
+     */
+    public static GenericDraweeHierarchy setCircleProgressBarHierarchy(Context context, int resId) {
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setRoundAsCircle(true);
+        GenericDraweeHierarchy circleProgressBarDraweeHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
+                .setProgressBarImage(ContextCompat.getDrawable(context, resId))
+                .setRoundingParams(roundingParams)
+                .build();
+        return circleProgressBarDraweeHierarchy;
+    }
+
+    public static GenericDraweeHierarchy setLoadFailHierarchy(Context context, int holderResId, int failResId) {
+        GenericDraweeHierarchy loadFailHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
+                .setPlaceholderImage(holderResId)
+                .setFailureImage(failResId)
+                .build();
+        return loadFailHierarchy;
+    }
+
 }

@@ -20,6 +20,8 @@ import com.fanyafeng.frescopicload.util.FrescoAttributeUtil;
 //需要搭配baseactivity，这里默认为baseactivity,并且默认Baseactivity为包名的根目录
 public class PicProgressActivity extends BaseActivity {
     private SimpleDraweeView progress1;
+    private SimpleDraweeView progress2;
+    private SimpleDraweeView progress3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +43,21 @@ public class PicProgressActivity extends BaseActivity {
     //初始化UI空间
     private void initView() {
         progress1 = (SimpleDraweeView) findViewById(R.id.progress1);
+        progress2 = (SimpleDraweeView) findViewById(R.id.progress2);
+        progress3 = (SimpleDraweeView) findViewById(R.id.progress3);
 
     }
 
     //初始化数据
     private void initData() {
-//        progress1.setHierarchy(FrescoAttributeUtil.setCircleHierarchy(this));
-//        progress1.setHierarchy(FrescoAttributeUtil.setProgressBarHierarchy(this,R.drawable.wine_loading));
-        RoundingParams roundingParams = new RoundingParams();
-        roundingParams.setRoundAsCircle(true);
-        GenericDraweeHierarchy progressBarDraweeHierarchy = GenericDraweeHierarchyBuilder.newInstance(getResources())
-                .setRoundingParams(roundingParams)
-                .setProgressBarImage(ContextCompat.getDrawable(this, R.drawable.wine_loading))
-                .build();
-        progress1.setHierarchy(progressBarDraweeHierarchy);
+        progress1.setHierarchy(FrescoAttributeUtil.setProgressBarHierarchy(this, R.drawable.wine_loading));
         progress1.setImageURI(PicUrlConstants.imgUrl);
+
+        progress2.setHierarchy(FrescoAttributeUtil.setCircleProgressBarHierarchy(this, R.drawable.wine_loading));
+        progress2.setImageURI(PicUrlConstants.imgUrl);
+
+        progress3.setHierarchy(FrescoAttributeUtil.setLoadFailHierarchy(this, R.drawable.load_holder_icon, R.drawable.load_fail_icon));
+        progress3.setImageURI(PicUrlConstants.imgUrl+"l");
     }
 
 }
