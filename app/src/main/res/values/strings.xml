@@ -5,4 +5,5 @@
     <string name="title_activity_app_pic_load">App内图片加载</string>
     <string name="title_activity_app_gif_pic_load">App内Gif图片加载</string>
     <string name="title_activity_circle_pic">加载圆形图片</string>
+    <string name="title_activity_pic_progress">图片加载过程显示</string>
 </resources>

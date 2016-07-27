@@ -40,23 +40,23 @@ public class CirclePicActivity extends BaseActivity {
     //初始化UI空间
     private void initView() {
         advCircle1 = (SimpleDraweeView) findViewById(R.id.advCircle1);
-        advCircle1.setHierarchy(FrescoAttributeUtil.getFedInHierarchy(this));
+        advCircle1.setHierarchy(FrescoAttributeUtil.setFedInHierarchy(this));
         advCircle1.setImageURI(PicUrlConstants.imgUrl);
 
         advCircle2 = (SimpleDraweeView) findViewById(R.id.advCircle2);
-        advCircle2.setHierarchy(FrescoAttributeUtil.getCircleHierarchy(this));
+        advCircle2.setHierarchy(FrescoAttributeUtil.setCircleHierarchy(this));
         advCircle2.setImageURI(PicUrlConstants.imgUrl);
 
         advCircle3 = (SimpleDraweeView) findViewById(R.id.advCircle3);
-        advCircle3.setHierarchy(FrescoAttributeUtil.getCircleRingHierarchy(this, Color.BLUE, 5f));
+        advCircle3.setHierarchy(FrescoAttributeUtil.setCircleRingHierarchy(this, Color.BLUE, 5f));
         advCircle3.setImageURI(PicUrlConstants.imgUrl);
 
         advCircle4 = (SimpleDraweeView) findViewById(R.id.advCircle4);
-        advCircle4.setHierarchy(FrescoAttributeUtil.getCircleRadiusHierarchy(this, 50f, 50f, 50f, 50f));
+        advCircle4.setHierarchy(FrescoAttributeUtil.setCircleRadiusHierarchy(this, 50f, 50f, 50f, 50f));
         advCircle4.setImageURI(PicUrlConstants.imgUrl);
 
         advCircle5 = (SimpleDraweeView) findViewById(R.id.advCircle5);
-        advCircle5.setHierarchy(FrescoAttributeUtil.getCircleRadiusRingHierarchy(this, 50f, 10f, 50f, 10f, Color.BLUE, 5f));
+        advCircle5.setHierarchy(FrescoAttributeUtil.setCircleRadiusRingHierarchy(this, 50f, 10f, 50f, 10f, Color.BLUE, 5f));
         advCircle5.setImageURI(PicUrlConstants.imgUrl);
     }
 

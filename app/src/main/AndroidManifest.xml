@@ -39,6 +39,11 @@
             android:name=".activity.CirclePicActivity"
             android:label="@string/title_activity_circle_pic"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PicProgressActivity"
+            android:label="@string/title_activity_pic_progress"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

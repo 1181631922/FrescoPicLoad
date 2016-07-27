@@ -1,10 +1,12 @@
 package com.fanyafeng.frescopicload.util;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.RoundingParams;
+import com.fanyafeng.frescopicload.R;
 
 /**
  * Author： fanyafeng
@@ -22,7 +24,7 @@ public class FrescoAttributeUtil {
      * @param context
      * @return
      */
-    public static GenericDraweeHierarchy getFedInHierarchy(Context context) {
+    public static GenericDraweeHierarchy setFedInHierarchy(Context context) {
         if (fedInHierarchy == null) {
             fedInHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
                     .setFadeDuration(300)
@@ -37,7 +39,7 @@ public class FrescoAttributeUtil {
      * @param context
      * @return
      */
-    public static GenericDraweeHierarchy getCircleHierarchy(Context context) {
+    public static GenericDraweeHierarchy setCircleHierarchy(Context context) {
         if (circleHierarchy == null) {
             circleHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
                     .setRoundingParams(RoundingParams.asCircle())
@@ -51,7 +53,7 @@ public class FrescoAttributeUtil {
      *
      * @return
      */
-    public static GenericDraweeHierarchy getCircleRingHierarchy(Context context, int ringColor, float ringWidth) {
+    public static GenericDraweeHierarchy setCircleRingHierarchy(Context context, int ringColor, float ringWidth) {
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.setBorder(ringColor, ringWidth);
         roundingParams.setRoundAsCircle(true);
@@ -71,7 +73,7 @@ public class FrescoAttributeUtil {
      * @param bottomLeft
      * @return
      */
-    public static GenericDraweeHierarchy getCircleRadiusHierarchy(Context context, float topLeft, float topRight, float bottomRight, float bottomLeft) {
+    public static GenericDraweeHierarchy setCircleRadiusHierarchy(Context context, float topLeft, float topRight, float bottomRight, float bottomLeft) {
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.setCornersRadii(topLeft, topRight, bottomRight, bottomLeft);
         GenericDraweeHierarchy circleRadiusHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
@@ -80,7 +82,19 @@ public class FrescoAttributeUtil {
         return circleRadiusHierarchy;
     }
 
-    public static GenericDraweeHierarchy getCircleRadiusRingHierarchy(Context context, float topLeft, float topRight, float bottomRight, float bottomLeft, int ringColor, float ringWidth) {
+    /**
+     * 获取圆角环图片
+     *
+     * @param context
+     * @param topLeft
+     * @param topRight
+     * @param bottomRight
+     * @param bottomLeft
+     * @param ringColor
+     * @param ringWidth
+     * @return
+     */
+    public static GenericDraweeHierarchy setCircleRadiusRingHierarchy(Context context, float topLeft, float topRight, float bottomRight, float bottomLeft, int ringColor, float ringWidth) {
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.setBorder(ringColor, ringWidth);
         roundingParams.setCornersRadii(topLeft, topRight, bottomRight, bottomLeft);
@@ -88,5 +102,12 @@ public class FrescoAttributeUtil {
                 .setRoundingParams(roundingParams)
                 .build();
         return circleRadiusRingHierarchy;
+    }
+
+    public static GenericDraweeHierarchy setProgressBarHierarchy(Context context, int resId) {
+        GenericDraweeHierarchy progressBarDraweeHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
+                .setProgressBarImage(ContextCompat.getDrawable(context, resId))
+                .build();
+        return progressBarDraweeHierarchy;
     }
 }
