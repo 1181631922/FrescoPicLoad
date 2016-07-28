@@ -46,5 +46,12 @@
             android:onClick="onClick"
             android:text="@string/title_activity_pic_progress"/>
 
+        <Button
+            android:id="@+id/btnOperate5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_cut_pic"/>
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

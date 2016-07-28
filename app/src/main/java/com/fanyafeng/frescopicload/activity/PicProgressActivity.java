@@ -57,7 +57,7 @@ public class PicProgressActivity extends BaseActivity {
         progress2.setImageURI(PicUrlConstants.imgUrl);
 
         progress3.setHierarchy(FrescoAttributeUtil.setLoadFailHierarchy(this, R.drawable.load_holder_icon, R.drawable.load_fail_icon));
-        progress3.setImageURI(PicUrlConstants.imgUrl+"l");
+        progress3.setImageURI(PicUrlConstants.imgUrl);
     }
 
 }
