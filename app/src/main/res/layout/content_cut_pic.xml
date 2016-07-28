@@ -20,9 +20,21 @@
             android:layout_height="200dp" />
 
         <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/cut3"
+            android:layout_width="274dp"
+            android:layout_height="205dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/cut2"
+            android:layout_width="274dp"
+            android:layout_height="205dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/cut1"
             android:layout_width="200dp"
             android:layout_height="100dp" />
+
+
 
 
     </LinearLayout>
