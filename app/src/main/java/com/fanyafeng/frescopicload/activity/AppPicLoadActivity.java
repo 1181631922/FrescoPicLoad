@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.facebook.binaryresource.FileBinaryResource;
 import com.facebook.cache.common.SimpleCacheKey;
+import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.core.ImagePipeline;
@@ -63,9 +64,11 @@ public class AppPicLoadActivity extends BaseActivity {
 
     //初始化数据
     private void initData() {
-        String myPng = Environment.getExternalStorageDirectory().getPath() + File.separator + "tb";
-//        + File.separator + "him.jpg";
-        FrescoDealPicUtil.copyPicFile(PicUrlConstants.imgUrl, myPng, "him.jpg");
+        String myPng = Environment.getExternalStorageDirectory().getPath() + File.separator + "tb"
+                + File.separator + "him.jpg";
+//        FrescoDealPicUtil.copyPicFile(PicUrlConstants.imgUrl, myPng, "him.jpg");
+//        sdv2.setImageURI(Uri.parse("file://" + myPng));
+        FrescoUtil.loadFilePic(sdv2,myPng);
     }
 
 }

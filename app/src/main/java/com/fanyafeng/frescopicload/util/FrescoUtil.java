@@ -13,6 +13,8 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequest;
 
+import java.net.SocketImpl;
+
 /**
  * Author： fanyafeng
  * Data： 16/7/9 12:04
@@ -157,6 +159,39 @@ public class FrescoUtil {
                 .setOldController(simpleDraweeView.getController())
                 .build();
         simpleDraweeView.setController(draweeController);
+    }
+
+    public static void loadFilePic(SimpleDraweeView simpleDraweeView, String imgUrl) {
+        simpleDraweeView.setImageURI("file://" + imgUrl);
+    }
+
+    public static void loadFilePic(SimpleDraweeView simpleDraweeView, String imgUrl, float aspectRatio) {
+        if (aspectRatio > 0) {
+            simpleDraweeView.setAspectRatio(aspectRatio);
+        }
+        simpleDraweeView.setImageURI("file://" + imgUrl);
+    }
+
+    public static void loadContentPic(SimpleDraweeView simpleDraweeView, String imgUrl) {
+        simpleDraweeView.setImageURI("content://" + imgUrl);
+    }
+
+    public static void loadContentPic(SimpleDraweeView simpleDraweeView, String imgUrl, float aspectRatio) {
+        if (aspectRatio > 0) {
+            simpleDraweeView.setAspectRatio(aspectRatio);
+        }
+        simpleDraweeView.setImageURI("content://" + imgUrl);
+    }
+
+    public static void loadResPic(SimpleDraweeView simpleDraweeView, String imgUrl) {
+        simpleDraweeView.setImageURI("res://" + imgUrl);
+    }
+
+    public static void loadResPic(SimpleDraweeView simpleDraweeView, String imgUrl, float aspectRatio) {
+        if (aspectRatio > 0) {
+            simpleDraweeView.setAspectRatio(aspectRatio);
+        }
+        simpleDraweeView.setImageURI("res://" + imgUrl);
     }
 
 }

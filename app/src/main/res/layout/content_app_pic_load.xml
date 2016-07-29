@@ -20,8 +20,8 @@
             android:layout_height="wrap_content" />
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/sdv2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
