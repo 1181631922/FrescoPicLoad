@@ -10,9 +10,11 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.facebook.common.references.CloseableReference;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
@@ -31,6 +33,7 @@ public class CutPicActivity extends BaseActivity {
     private SimpleDraweeView cut1;
     private SimpleDraweeView cut2;
     private SimpleDraweeView cut3;
+    private SimpleDraweeView cut4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,20 +59,36 @@ public class CutPicActivity extends BaseActivity {
         cut1 = (SimpleDraweeView) findViewById(R.id.cut1);
         cut2 = (SimpleDraweeView) findViewById(R.id.cut2);
         cut3 = (SimpleDraweeView) findViewById(R.id.cut3);
+        cut4 = (SimpleDraweeView) findViewById(R.id.cut4);
 
         Postprocessor postprocessor = new BasePostprocessor() {
 
             @Override
-            public void process(Bitmap bitmap) {
-                super.process(bitmap);
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                Canvas canvas = new Canvas(bitmap);
-                Paint paint = new Paint();
-                paint.setAlpha(255);
-                Bitmap bitma = BitmapFactory.decodeResource(getResources(), R.drawable.wind);
-                int markWidth = bitma.getWidth();
-                canvas.drawBitmap(bitma, width - markWidth - 50, 50, paint);
+            public void process(Bitmap destBitmap, Bitmap sourceBitmap) {
+                super.process(destBitmap, sourceBitmap);
+//                for (int x = 0; x < destBitmap.getWidth(); x++) {
+//                    for (int y = 0; y < destBitmap.getHeight(); y++) {
+//                        destBitmap.setPixel(destBitmap.getWidth() - x, y, sourceBitmap.getPixel(x, y));
+//                    }
+//                }
+            }
+
+            @Override
+            public CloseableReference<Bitmap> process(Bitmap sourceBitmap, PlatformBitmapFactory bitmapFactory) {
+                CloseableReference<Bitmap> bitmapRef = bitmapFactory.createBitmap(
+                        sourceBitmap.getWidth(),
+                        sourceBitmap.getHeight());
+                try {
+                    Bitmap destBitmap = bitmapRef.get();
+                    for (int x = 0; x < destBitmap.getWidth(); x++) {
+                        for (int y = 0; y < destBitmap.getHeight(); y++) {
+                            destBitmap.setPixel(x, y, sourceBitmap.getPixel(x - sourceBitmap.getWidth(), y));
+                        }
+                    }
+                    return CloseableReference.cloneOrNull(bitmapRef);
+                } finally {
+                    CloseableReference.closeSafely(bitmapRef);
+                }
             }
         };
         ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(PicUrlConstants.imgUrl))
@@ -77,9 +96,9 @@ public class CutPicActivity extends BaseActivity {
                 .build();
         PipelineDraweeController pipelineDraweeController = (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
                 .setImageRequest(imageRequest)
-                .setOldController(cut3.getController())
+                .setOldController(cut4.getController())
                 .build();
-//        cut3.setController(pipelineDraweeController);
+        cut4.setController(pipelineDraweeController);
 
     }
 

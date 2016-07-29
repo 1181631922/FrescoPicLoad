@@ -11,6 +11,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.request.ImageRequest;
 
 /**
  * Author： fanyafeng
@@ -124,4 +125,38 @@ public class FrescoUtil {
                 .build();
         simpleDraweeView.setController(draweeController);
     }
+
+    public static void loadPicOnNet(SimpleDraweeView simpleDraweeView, @NonNull String imgUrl) {
+        simpleDraweeView.setImageURI(imgUrl);
+    }
+
+    public static void loadPicOnNet(SimpleDraweeView simpleDraweeView, @NonNull Uri imgUri) {
+        simpleDraweeView.setImageURI(imgUri);
+    }
+
+    /**
+     * 多图加载
+     *
+     * @param simpleDraweeView
+     * @param highUrl          高分辨率
+     * @param lowUrl           低分辨率
+     */
+    public static void loadPicOnNet(SimpleDraweeView simpleDraweeView, Uri lowUri, Uri highUri) {
+        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                .setLowResImageRequest(ImageRequest.fromUri(lowUri))
+                .setImageRequest(ImageRequest.fromUri(highUri))
+                .setOldController(simpleDraweeView.getController())
+                .build();
+        simpleDraweeView.setController(draweeController);
+    }
+
+    public static void loadPicOnNet(SimpleDraweeView simpleDraweeView, String lowUrl, String highUrl) {
+        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                .setLowResImageRequest(ImageRequest.fromUri(lowUrl))
+                .setImageRequest(ImageRequest.fromUri(highUrl))
+                .setOldController(simpleDraweeView.getController())
+                .build();
+        simpleDraweeView.setController(draweeController);
+    }
+
 }

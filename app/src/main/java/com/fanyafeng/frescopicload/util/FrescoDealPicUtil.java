@@ -10,6 +10,8 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
 
+import com.facebook.binaryresource.FileBinaryResource;
+import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
@@ -21,6 +23,12 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.facebook.imagepipeline.request.Postprocessor;
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.constant.PicUrlConstants;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Author： fanyafeng
@@ -143,5 +151,47 @@ public class FrescoDealPicUtil {
                 .setOldController(simpleDraweeView.getController())
                 .build();
         simpleDraweeView.setController(pipelineDraweeController);
+    }
+
+    /**
+     * 图片拷贝
+     *
+     * @param imgUrl
+     * @param newPath
+     * @param fileName
+     * @return
+     */
+    public static boolean copyPicFile(String imgUrl, String newPath, String fileName) {
+        FileBinaryResource fileBinaryResource = (FileBinaryResource) Fresco.getImagePipelineFactory()
+                .getMainFileCache().getResource(new SimpleCacheKey(imgUrl));
+        File oldfile = fileBinaryResource.getFile();
+        boolean isok = true;
+        try {
+            int bytesum = 0;
+            int byteread = 0;
+            if (oldfile.exists()) { //文件存在时
+                InputStream inStream = new FileInputStream(oldfile); //读入原文件
+                if (!new File(newPath).exists()) {
+                    new File(newPath).mkdirs();
+                }
+                String myPath = newPath + File.separator + fileName;
+                FileOutputStream fs = new FileOutputStream(myPath);
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((byteread = inStream.read(buffer)) != -1) {
+                    bytesum += byteread; //字节数 文件大小
+                    fs.write(buffer, 0, byteread);
+                }
+                fs.flush();
+                fs.close();
+                inStream.close();
+            } else {
+                isok = false;
+            }
+        } catch (Exception e) {
+            isok = false;
+        }
+        return isok;
+
     }
 }
