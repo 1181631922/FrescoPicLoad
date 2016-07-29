@@ -75,6 +75,7 @@ public class FrescoDealPicUtil {
         PipelineDraweeController pipelineDraweeController = (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
                 .setImageRequest(imageRequest)
                 .setOldController(simpleDraweeView.getController())
+                .setTapToRetryEnabled(true)//点击重试
                 .build();
         simpleDraweeView.setController(pipelineDraweeController);
     }

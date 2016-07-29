@@ -141,6 +141,7 @@ public class FrescoAttributeUtil {
         GenericDraweeHierarchy loadFailHierarchy = GenericDraweeHierarchyBuilder.newInstance(context.getResources())
                 .setPlaceholderImage(holderResId)
                 .setFailureImage(failResId)
+//                .setRetryImage()   加载失败后的重试图片
                 .build();
         return loadFailHierarchy;
     }
