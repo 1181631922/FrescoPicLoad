@@ -164,6 +164,9 @@ public class FrescoDealPicUtil {
     public static boolean copyPicFile(String imgUrl, String newPath, String fileName) {
         FileBinaryResource fileBinaryResource = (FileBinaryResource) Fresco.getImagePipelineFactory()
                 .getMainFileCache().getResource(new SimpleCacheKey(imgUrl));
+        if (fileBinaryResource == null) {
+            return false;
+        }
         File oldfile = fileBinaryResource.getFile();
         boolean isok = true;
         try {
