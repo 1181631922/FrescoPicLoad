@@ -121,7 +121,7 @@ public class FrescoAttributeUtil {
 
     /**
      * 加载图片过程中动图progressbar显示，可以为动画图，也可以为非动图
-     * 图片为言行图片
+     * 图片为圆形图片
      *
      * @param context
      * @param resId

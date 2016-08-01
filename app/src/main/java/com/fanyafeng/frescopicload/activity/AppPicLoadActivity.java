@@ -18,6 +18,11 @@ import com.fanyafeng.frescopicload.constant.PicUrlConstants;
 import com.fanyafeng.frescopicload.util.FrescoDealPicUtil;
 import com.fanyafeng.frescopicload.util.FrescoUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -68,7 +73,7 @@ public class AppPicLoadActivity extends BaseActivity {
                 + File.separator + "him.jpg";
 //        FrescoDealPicUtil.copyPicFile(PicUrlConstants.imgUrl, myPng, "him.jpg");
 //        sdv2.setImageURI(Uri.parse("file://" + myPng));
-        FrescoUtil.loadFilePic(sdv2,myPng);
+        FrescoUtil.loadFilePic(sdv2, myPng);
     }
 
 }
