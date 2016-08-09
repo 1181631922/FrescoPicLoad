@@ -61,6 +61,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnOperate5:
                 startActivity(new Intent(this, CutPicActivity.class));
                 break;
+            case R.id.btnOperate6:
+                startActivity(new Intent(this,DownPicActivity.class));
+                break;
         }
     }
 }

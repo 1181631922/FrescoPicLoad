@@ -12,11 +12,21 @@ import android.net.Uri;
 
 import com.facebook.binaryresource.FileBinaryResource;
 import com.facebook.cache.common.SimpleCacheKey;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
+import com.facebook.imagepipeline.common.ImageDecodeOptions;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.core.ImagePipeline;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
@@ -152,6 +162,63 @@ public class FrescoDealPicUtil {
                 .setOldController(simpleDraweeView.getController())
                 .build();
         simpleDraweeView.setController(pipelineDraweeController);
+    }
+
+
+    /**
+     * resize 图片
+     *
+     * @param uri
+     * @param draweeView
+     */
+    public static void showThumb(Uri uri, SimpleDraweeView draweeView) {
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
+//                .setResizeOptions(new ResizeOptions(.dip2px(144), DensityUtil.dip2px(144)))
+                .build();
+
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setImageRequest(request)
+                .setOldController(draweeView.getController())
+                .setControllerListener(new BaseControllerListener<ImageInfo>())
+                .build();
+        draweeView.setController(controller);
+    }
+
+    /**
+     * 异步
+     *
+     * @param context
+     * @param picUrl
+     * @return
+     */
+    public static Bitmap getBitmap(Context context, String picUrl) {
+        final Bitmap[] bitMap = {null};
+        Uri uri = Uri.parse(picUrl);
+        ImageDecodeOptions decodeOptions = ImageDecodeOptions.newBuilder()
+                .setBackgroundColor(Color.GRAY)
+                .build();
+        ImageRequest imageRequest = ImageRequestBuilder
+                .newBuilderWithSource(uri)
+                .setImageDecodeOptions(decodeOptions)
+                .setAutoRotateEnabled(true)
+                .setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH)
+                .setProgressiveRenderingEnabled(false)
+//                .setResizeOptions()
+                .build();
+        ImagePipeline imagePipeline = Fresco.getImagePipeline();
+        DataSource<CloseableReference<CloseableImage>> dataSource = imagePipeline.fetchDecodedImage(imageRequest, context);
+        dataSource.subscribe(new BaseBitmapDataSubscriber() {
+            @Override
+            protected void onNewResultImpl(Bitmap bitmap) {
+                bitMap[0] = bitmap;
+            }
+
+            @Override
+            protected void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+
+            }
+        }, UiThreadImmediateExecutorService.getInstance());
+        return bitMap[0];
     }
 
     /**

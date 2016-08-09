@@ -127,6 +127,7 @@ public class FrescoConfig {
 //        	  .setPoolFactory(poolFactory)//线程池工厂配置
 //        	  .setProgressiveJpegConfig(progressiveJpegConfig)//渐进式JPEG图
 //        	  .setRequestListeners(requestListeners)//图片请求监听
+                .setDownsampleEnabled(true)//resize除jpg格式以外的图片
                 .setResizeAndRotateEnabledForNetwork(true)//调整和旋转是否支持网络图片
                 .setSmallImageDiskCacheConfig(diskSmallCacheConfig)//磁盘缓存配置（小图片，可选～三级缓存的小图优化缓存）
                 ;

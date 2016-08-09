@@ -49,6 +49,11 @@
             android:name=".activity.CutPicActivity"
             android:label="@string/title_activity_cut_pic"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DownPicActivity"
+            android:label="@string/title_activity_down_pic"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

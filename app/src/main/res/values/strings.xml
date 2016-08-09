@@ -7,4 +7,5 @@
     <string name="title_activity_circle_pic">加载圆形图片</string>
     <string name="title_activity_pic_progress">图片加载过程显示</string>
     <string name="title_activity_cut_pic">显示图片裁剪</string>
+    <string name="title_activity_down_pic">只下载不显示</string>
 </resources>
