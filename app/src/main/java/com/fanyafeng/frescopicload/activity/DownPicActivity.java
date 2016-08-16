@@ -2,7 +2,9 @@ package com.fanyafeng.frescopicload.activity;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -73,11 +75,14 @@ public class DownPicActivity extends BaseActivity {
     }
 
     private void senNotifi(Bitmap bitmap) {
+        int id = (int) (System.currentTimeMillis() / 1000);
+        Intent intent = new Intent(this, DialogActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(title)
                 .setContentText("消息详细内容嘻嘻嘻嘻嘻嘻嘻嘻嘻")
-//                .setContentIntent(contentIntent)
+                .setContentIntent(contentIntent)
                 .setTicker(this.getString(R.string.app_name) + "消息")
                 .setWhen(System.currentTimeMillis())
                 .setPriority(Notification.PRIORITY_DEFAULT)
@@ -90,7 +95,7 @@ public class DownPicActivity extends BaseActivity {
 
         Notification notification = builder.build();
         notification.flags = Notification.FLAG_AUTO_CANCEL;
-        notificationManager.notify((int) (System.currentTimeMillis() / 1000), notification);
+        notificationManager.notify(id, notification);
     }
 
     @Override

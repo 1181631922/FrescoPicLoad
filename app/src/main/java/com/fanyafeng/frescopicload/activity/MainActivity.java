@@ -1,18 +1,37 @@
 package com.fanyafeng.frescopicload.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.BaseActivity;
+import com.fanyafeng.frescopicload.receiver.CustomActions;
 
 //需要搭配baseactivity，这里默认为baseactivity,并且默认Baseactivity为包名的根目录
 public class MainActivity extends BaseActivity {
+
+    private Receiver receiver = new Receiver();
+
+    class Receiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            switch (intent.getAction()) {
+                case CustomActions.ACTION_USER_LOGINED:
+                    Log.d("main", "收到广播");
+                    context.startActivity(new Intent(MainActivity.this, DialogActivity.class));
+                    break;
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +58,17 @@ public class MainActivity extends BaseActivity {
 
     //初始化数据
     private void initData() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(CustomActions.ACTION_USER_LOGINED);
+        registerReceiver(receiver, filter);
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (isFinishing()) {
+            unregisterReceiver(receiver);
+        }
     }
 
     @Override
@@ -62,7 +91,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, CutPicActivity.class));
                 break;
             case R.id.btnOperate6:
-                startActivity(new Intent(this,DownPicActivity.class));
+                startActivity(new Intent(this, DownPicActivity.class));
+                break;
+            case R.id.btnOperate7:
+                startActivity(new Intent(this, DialogActivity.class));
+                break;
+            case R.id.btnOperate8:
+                startActivity(new Intent(this, MyReceiverActivity.class));
                 break;
         }
     }

@@ -221,6 +221,18 @@ public class FrescoDealPicUtil {
         return bitMap[0];
     }
 
+    private static void download(Context context, String url) {
+
+        ImageRequest request = ImageRequestBuilder.
+                newBuilderWithSource(Uri.parse(url))
+                .setAutoRotateEnabled(true)
+                .setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH)
+                .setProgressiveRenderingEnabled(false)
+                .build();
+        ImagePipeline imagePipeline = Fresco.getImagePipeline();
+        imagePipeline.prefetchToDiskCache(request, context);
+    }
+
     /**
      * 图片拷贝
      *

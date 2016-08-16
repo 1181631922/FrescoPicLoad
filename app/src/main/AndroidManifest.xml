@@ -54,6 +54,16 @@
             android:name=".activity.DownPicActivity"
             android:label="@string/title_activity_down_pic"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DialogActivity"
+            android:label="@string/title_activity_dialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name=".activity.MyReceiverActivity"
+            android:label="@string/title_activity_my_receiver"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

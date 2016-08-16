@@ -44,21 +44,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/title_activity_pic_progress"/>
+            android:text="@string/title_activity_pic_progress" />
 
         <Button
             android:id="@+id/btnOperate5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/title_activity_cut_pic"/>
+            android:text="@string/title_activity_cut_pic" />
 
         <Button
             android:id="@+id/btnOperate6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="@string/title_activity_down_pic"/>
+            android:text="@string/title_activity_down_pic" />
+
+        <Button
+            android:id="@+id/btnOperate7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_dialog" />
+
+        <Button
+            android:id="@+id/btnOperate8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_my_receiver" />
+
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
