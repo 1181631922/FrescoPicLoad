@@ -64,6 +64,16 @@
             android:name=".activity.MyReceiverActivity"
             android:label="@string/title_activity_my_receiver"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PicListActivity"
+            android:label="@string/title_activity_pic_list"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.VideoActivity"
+            android:label="@string/title_activity_video"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

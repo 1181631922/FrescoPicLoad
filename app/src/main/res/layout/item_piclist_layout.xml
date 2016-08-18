@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="320dp"
+    android:orientation="vertical">
+
+
+    <com.volokh.danylo.video_player_manager.ui.VideoPlayerView
+        android:id="@+id/videoItem"
+        android:layout_width="match_parent"
+        android:layout_height="280dp" />
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdvPicItem"
+        android:layout_width="match_parent"
+        android:layout_height="280dp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/sdvPicItem"
+        android:gravity="center"
+        android:text="标题"
+        android:textColor="@android:color/black" />
+
+</RelativeLayout>

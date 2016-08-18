@@ -74,6 +74,20 @@
             android:onClick="onClick"
             android:text="@string/title_activity_my_receiver" />
 
+        <Button
+            android:id="@+id/btnOperate9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_pic_list" />
+
+        <Button
+            android:id="@+id/btnOperate10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_video" />
+
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

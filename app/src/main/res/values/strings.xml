@@ -10,4 +10,6 @@
     <string name="title_activity_down_pic">只下载不显示</string>
     <string name="title_activity_dialog">dialog式activity</string>
     <string name="title_activity_my_receiver">发送广播</string>
+    <string name="title_activity_pic_list">图片列表</string>
+    <string name="title_activity_video">视频播放</string>
 </resources>

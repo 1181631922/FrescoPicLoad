@@ -99,6 +99,12 @@ public class MainActivity extends BaseActivity {
             case R.id.btnOperate8:
                 startActivity(new Intent(this, MyReceiverActivity.class));
                 break;
+            case R.id.btnOperate9:
+                startActivity(new Intent(this, PicListActivity.class));
+                break;
+            case R.id.btnOperate10:
+                startActivity(new Intent(this, VideoActivity.class));
+                break;
         }
     }
 }
