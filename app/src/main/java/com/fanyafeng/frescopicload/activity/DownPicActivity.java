@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.commit451.nativestackblur.NativeStackBlur;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
@@ -124,7 +125,7 @@ public class DownPicActivity extends BaseActivity {
                 .setImageDecodeOptions(decodeOptions)
                 .setAutoRotateEnabled(true)
                 .setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH)
-                .setProgressiveRenderingEnabled(false)//渐进渲染
+                .setProgressiveRenderingEnabled(true)//渐进渲染
 //                .setResizeOptions(new ResizeOptions(300, 300))
                 .build();
         ImagePipeline imagePipeline = Fresco.getImagePipeline();
@@ -135,7 +136,8 @@ public class DownPicActivity extends BaseActivity {
             protected void onNewResultImpl(Bitmap bitmap) {
                 //获取图片的bitmap
                 Log.d("down", "down在bitmap做了点啥" + (bitmap == null));
-                sdvDown1.setImageBitmap(bitmap);
+//                sdvDown1.setImageBitmap(bitmap);
+                sdvDown1.setImageBitmap(fastBlur(bitmap, 10, 2));
                 ivDown1.setImageBitmap(bitmap);
                 senNotifi(bitmap);
             }
@@ -172,5 +174,15 @@ public class DownPicActivity extends BaseActivity {
 //        }
 
 
+    }
+
+    private Bitmap fastBlur(Bitmap bkg, int radius, int downSampling) {
+        if (downSampling < 2) {
+            downSampling = 2;
+        }
+
+        Bitmap smallBitmap = Bitmap.createScaledBitmap(bkg, bkg.getWidth() / downSampling, bkg.getHeight() / downSampling, true);
+
+        return NativeStackBlur.process(smallBitmap, radius);
     }
 }

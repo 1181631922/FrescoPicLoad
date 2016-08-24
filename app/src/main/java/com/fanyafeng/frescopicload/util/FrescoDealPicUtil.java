@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
 
+import com.commit451.nativestackblur.NativeStackBlur;
 import com.facebook.binaryresource.FileBinaryResource;
 import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
@@ -33,6 +34,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.facebook.imagepipeline.request.Postprocessor;
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.constant.PicUrlConstants;
+import com.fanyafeng.frescopicload.util.BlurUtil.BlurPostprocessor;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -275,6 +277,57 @@ public class FrescoDealPicUtil {
             isok = false;
         }
         return isok;
+    }
+
+    public static void loadUrlInBlur(String url, SimpleDraweeView draweeView,
+                                     int width, int height, Context context, int radius, int sampling) {
+        if (sampling < 2) {
+            sampling = 2;
+        }
+        loadUrl(url, draweeView, new BlurPostprocessor(context, radius, 1), width / sampling, height / sampling, null);
+    }
+
+    public static void loadUrl(String url, SimpleDraweeView draweeView, BasePostprocessor processor, int width, int height,
+                               BaseControllerListener listener) {
+
+        load(Uri.parse(url), draweeView, processor, width, height, listener);
 
     }
+
+    public static void load(Uri uri, SimpleDraweeView draweeView, BasePostprocessor processor, int width, int height,
+                            BaseControllerListener listener) {
+        ResizeOptions resizeOptions = null;
+        if (width > 0 && height > 0) {
+            resizeOptions = new ResizeOptions(width, height);
+        }
+        ImageRequest request =
+                ImageRequestBuilder.newBuilderWithSource(uri)
+                        .setPostprocessor(processor)
+//                        .setResizeOptions(resizeOptions)
+                        //缩放,在解码前修改内存中的图片大小, 配合Downsampling可以处理所有图片,否则只能处理jpg,
+                        // 开启Downsampling:在初始化时设置.setDownsampleEnabled(true)
+                        .setProgressiveRenderingEnabled(true)//支持图片渐进式加载
+                        .setAutoRotateEnabled(true) //如果图片是侧着,可以自动旋转
+                        .build();
+
+        PipelineDraweeController controller =
+                (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
+                        .setImageRequest(request)
+                        .setControllerListener(listener)
+                        .setOldController(draweeView.getController())
+                        .setAutoPlayAnimations(true) //自动播放gif动画
+                        .build();
+        draweeView.setController(controller);
+    }
+
+    private Bitmap fastBlur(Bitmap bkg, int radius, int downSampling) {
+        if (downSampling < 2) {
+            downSampling = 2;
+        }
+
+        Bitmap smallBitmap = Bitmap.createScaledBitmap(bkg, bkg.getWidth() / downSampling, bkg.getHeight() / downSampling, true);
+
+        return NativeStackBlur.process(smallBitmap, radius);
+    }
+
 }

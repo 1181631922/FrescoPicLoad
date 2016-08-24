@@ -37,8 +37,8 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/sdvDown1"
-            android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_width="400dp"
+            android:layout_height="400dp" />
 
         <ImageView
             android:id="@+id/ivDown1"

@@ -105,6 +105,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnOperate10:
                 startActivity(new Intent(this, VideoActivity.class));
                 break;
+            case R.id.btnOperate11:
+                startActivity(new Intent(this,BlurPicActivity.class));
+                break;
         }
     }
 }

@@ -26,8 +26,9 @@ dependencies {
     compile 'com.android.support:design:24.0.0'
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.facebook.fresco:animated-gif:0.12.0'
-
-//    视频库
+    //    视频库
     compile 'com.github.danylovolokh:video-player-manager:0.2.0'
     compile 'com.github.danylovolokh:list-visibility-utils:0.2.0'
+
+    compile 'com.commit451:NativeStackBlur:1.0.2'
 }

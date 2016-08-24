@@ -2,6 +2,7 @@ package com.fanyafeng.frescopicload.activity;
 
 import android.os.Bundle;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.BaseActivity;

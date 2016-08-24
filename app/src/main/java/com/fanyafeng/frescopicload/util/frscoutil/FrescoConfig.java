@@ -2,6 +2,7 @@ package com.fanyafeng.frescopicload.util.frscoutil;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
@@ -127,6 +128,7 @@ public class FrescoConfig {
 //        	  .setPoolFactory(poolFactory)//线程池工厂配置
 //        	  .setProgressiveJpegConfig(progressiveJpegConfig)//渐进式JPEG图
 //        	  .setRequestListeners(requestListeners)//图片请求监听
+                .setBitmapsConfig(Bitmap.Config.RGB_565)
                 .setDownsampleEnabled(true)//resize除jpg格式以外的图片
                 .setResizeAndRotateEnabledForNetwork(true)//调整和旋转是否支持网络图片
                 .setSmallImageDiskCacheConfig(diskSmallCacheConfig)//磁盘缓存配置（小图片，可选～三级缓存的小图优化缓存）
