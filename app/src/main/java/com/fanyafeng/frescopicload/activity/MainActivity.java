@@ -111,6 +111,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnOperate12:
                 startActivity(new Intent(this, CocktaiSortActivity.class));
                 break;
+            case R.id.btnOperate13:
+                startActivity(new Intent(this, BubbleSortActivity.class));
+                break;
         }
     }
 }
