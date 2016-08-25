@@ -79,6 +79,11 @@
             android:name=".activity.BlurPicActivity"
             android:label="@string/title_activity_blur_pic"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.CocktaiSortActivity"
+            android:label="@string/title_activity_cocktai_sort"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

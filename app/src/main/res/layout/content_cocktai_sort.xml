@@ -5,27 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.fanyafeng.frescopicload.activity.BlurPicActivity"
-    tools:showIn="@layout/activity_blur_pic">
+    tools:context="com.fanyafeng.frescopicload.activity.CocktaiSortActivity"
+    tools:showIn="@layout/activity_cocktai_sort">
 
     <!--需要v4或者v7包，不过一般as创建的工程都默认存在,此处采用滑动嵌套布局，为了解决滑动冲突-->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/sdvBlur"
-            android:layout_width="300dp"
-            android:layout_height="300dp" />
-
-
-        <ImageView
-            android:id="@+id/ivBlur"
+            android:id="@+id/sdvCocktai"
             android:layout_width="match_parent"
-            android:layout_height="150dp" />
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
-    </RelativeLayout>
+    </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -106,7 +106,10 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, VideoActivity.class));
                 break;
             case R.id.btnOperate11:
-                startActivity(new Intent(this,BlurPicActivity.class));
+                startActivity(new Intent(this, BlurPicActivity.class));
+                break;
+            case R.id.btnOperate12:
+                startActivity(new Intent(this, CocktaiSortActivity.class));
                 break;
         }
     }
