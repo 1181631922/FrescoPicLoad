@@ -108,7 +108,24 @@
             android:layout_height="wrap_content"
             android:onClick="onClick"
             android:text="@string/title_activity_bubble_sort" />
-
+        <Button
+            android:id="@+id/btnOperate14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_quick_sort" />
+        <Button
+            android:id="@+id/btnOperate15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_heap_sort" />
+        <Button
+            android:id="@+id/btnOperate16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/title_activity_binary_search" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -89,6 +89,21 @@
             android:name=".activity.BubbleSortActivity"
             android:label="@string/title_activity_bubble_sort"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.QuickSortActivity"
+            android:label="@string/title_activity_quick_sort"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.HeapSortActivity"
+            android:label="@string/title_activity_heap_sort"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.BinarySearchActivity"
+            android:label="@string/title_activity_binary_search"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -114,6 +114,15 @@ public class MainActivity extends BaseActivity {
             case R.id.btnOperate13:
                 startActivity(new Intent(this, BubbleSortActivity.class));
                 break;
+            case R.id.btnOperate14:
+                startActivity(new Intent(this, QuickSortActivity.class));
+                break;
+            case R.id.btnOperate15:
+                startActivity(new Intent(this, HeapSortActivity.class));
+                break;
+            case R.id.btnOperate16:
+                startActivity(new Intent(this, BinarySearchActivity.class));
+                break;
         }
     }
 }

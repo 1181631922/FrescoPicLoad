@@ -15,4 +15,7 @@
     <string name="title_activity_blur_pic">高斯模糊</string>
     <string name="title_activity_cocktai_sort">鸡尾酒排序</string>
     <string name="title_activity_bubble_sort">冒泡排序</string>
+    <string name="title_activity_quick_sort">快速排序</string>
+    <string name="title_activity_heap_sort">堆排序</string>
+    <string name="title_activity_binary_search">二分查找</string>
 </resources>
