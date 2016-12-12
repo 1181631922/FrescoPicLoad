@@ -7,3 +7,4 @@ Fresco图片加载框架工具类封装
 ![3](https://github.com/1181631922/FrescoPicLoad/blob/master/ScreenShots/fresco3.gif)
 ![4](https://github.com/1181631922/FrescoPicLoad/blob/master/ScreenShots/fresco4.gif)
 ![5](https://github.com/1181631922/FrescoPicLoad/blob/master/ScreenShots/fresco5.gif)
+
