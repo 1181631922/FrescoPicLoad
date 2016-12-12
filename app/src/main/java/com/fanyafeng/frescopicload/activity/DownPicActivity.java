@@ -184,5 +184,6 @@ public class DownPicActivity extends BaseActivity {
         Bitmap smallBitmap = Bitmap.createScaledBitmap(bkg, bkg.getWidth() / downSampling, bkg.getHeight() / downSampling, true);
 
         return NativeStackBlur.process(smallBitmap, radius);
+
     }
 }
