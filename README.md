@@ -1,5 +1,5 @@
 # 1.FrescoPicLoad
-Fresco图片加载框架工具类封装
+Fresco图片加载框架工具类封装，这里我偷懒了，没有发布到jcenter上，大家需要的话直接从github上下载放在自己项目里吧，东西不多
 
 # 2.效果图
 ![1](https://github.com/1181631922/FrescoPicLoad/blob/master/ScreenShots/fresco1.gif)
@@ -13,4 +13,4 @@ Fresco图片加载框架工具类封装
 * [Fresco加载圆角图片以及定义progressbar动画](http://blog.csdn.net/qq_23195583/article/details/53582457)
 * [Fresco进行图片的裁剪以及加水印](http://blog.csdn.net/qq_23195583/article/details/53582706)
 * [Fresco进行图片的下载，高斯模糊](http://blog.csdn.net/qq_23195583/article/details/53582930)
-待续。。。
+* 待续。。。
