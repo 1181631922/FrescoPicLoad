@@ -49,6 +49,7 @@ public class ControllerListenerUtil {
         DraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setControllerListener(controllerListener)
                 .setUri(Uri.parse(imagePath))
+                .setAutoPlayAnimations(true)
                 .build();
         simpleDraweeView.setController(controller);
     }
