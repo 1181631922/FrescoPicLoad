@@ -330,4 +330,15 @@ public class FrescoDealPicUtil {
         return NativeStackBlur.process(smallBitmap, radius);
     }
 
+    //判断缓存中是否存在该图片
+    public static boolean isExist(String imgUrl) {
+        FileBinaryResource fileBinaryResource = (FileBinaryResource) Fresco.getImagePipelineFactory()
+                .getMainFileCache().getResource(new SimpleCacheKey(imgUrl));
+        if (fileBinaryResource == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
