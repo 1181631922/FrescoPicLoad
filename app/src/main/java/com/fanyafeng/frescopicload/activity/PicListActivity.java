@@ -73,12 +73,11 @@ public class PicListActivity extends BaseActivity {
                         int firstPos = ((LinearLayoutManager) rvPicList.getLayoutManager()).findFirstVisibleItemPosition();
                         int lastPos = ((LinearLayoutManager) rvPicList.getLayoutManager()).findLastVisibleItemPosition();
                         Log.d("recycler_position", "firstPos:" + firstPos + " | lastPos:" + lastPos);
-
-                        View view = rvPicList.getChildAt(firstPos);
-                        int[] location = new int[2];
-                        view.getLocationInWindow(location);
-                        Log.d("location", "location0：" + location[0] + " | location1：" + location[1]);
-
+                        if (rvPicList.getChildAt(firstPos) != null) {
+                            View view = rvPicList.getChildAt(firstPos);
+                            int[] location = new int[2];
+                            view.getLocationInWindow(location);
+                        }
                         break;
                     case RecyclerView.SCROLL_STATE_DRAGGING:
                         break;
