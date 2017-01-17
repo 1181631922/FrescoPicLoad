@@ -13,13 +13,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     protected Toolbar toolbar;
     protected TextView toolbar_center_title;
-    protected boolean isShowToolbar = true;
-    protected boolean isSetNavigationIcon = true;
-    protected boolean isSetLogo = false;
+    protected boolean isShowToolbar = true;//是否显示toolbar，默认显示
+    protected boolean isSetNavigationIcon = true;//是否显示toolbar的返回键，默认显示
+    protected boolean isSetLogo = false;//是否设置toolbar的logo，默认不设置
     protected boolean isShowEmail = true;
-    protected String title;
-    protected String centertitle;
-    protected String subtitle;
+    protected String title;//toolbar标题
+    protected String centertitle;//toolbar中心标题，需要在onresume设置，需要super
+    protected String subtitle;//toolbar副标题
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
