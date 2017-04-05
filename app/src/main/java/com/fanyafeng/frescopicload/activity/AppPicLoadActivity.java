@@ -10,11 +10,13 @@ import com.facebook.binaryresource.FileBinaryResource;
 import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.fanyafeng.frescopicload.R;
 import com.fanyafeng.frescopicload.BaseActivity;
 import com.fanyafeng.frescopicload.constant.PicUrlConstants;
+import com.fanyafeng.frescopicload.util.FrescoAttributeUtil;
 import com.fanyafeng.frescopicload.util.FrescoDealPicUtil;
 import com.fanyafeng.frescopicload.util.FrescoUtil;
 
@@ -33,6 +35,7 @@ import java.io.IOException;
 public class AppPicLoadActivity extends BaseActivity {
     private SimpleDraweeView sdv1;
     private SimpleDraweeView sdv2;
+    private SimpleDraweeView sdv3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,7 @@ public class AppPicLoadActivity extends BaseActivity {
         Log.d("isInCache", "是否在缓存中：" + isInCache);
 
 //        sdv2.setImageBitmap();
-
+        sdv3 = (SimpleDraweeView) findViewById(R.id.sdv3);
 
     }
 
@@ -74,6 +77,11 @@ public class AppPicLoadActivity extends BaseActivity {
 //        FrescoDealPicUtil.copyPicFile(PicUrlConstants.imgUrl, myPng, "him.jpg");
 //        sdv2.setImageURI(Uri.parse("file://" + myPng));
         FrescoUtil.loadFilePic(sdv2, myPng);
+
+        FrescoUtil.loadPicOnNet(sdv3, PicUrlConstants.imgUrl);
+
+        sdv3.setHierarchy(FrescoAttributeUtil.setScanType(this, ScalingUtils.ScaleType.FIT_CENTER));
+
     }
 
 }

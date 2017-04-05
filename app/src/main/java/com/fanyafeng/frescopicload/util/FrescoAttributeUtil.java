@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.CompoundButtonCompat;
 
+import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.RoundingParams;
@@ -47,6 +48,12 @@ public class FrescoAttributeUtil {
                     .build();
         }
         return circleHierarchy;
+    }
+
+    public static GenericDraweeHierarchy setScanType(Context context, ScalingUtils.ScaleType scaleType) {
+        return GenericDraweeHierarchyBuilder.newInstance(context.getResources())
+                .setActualImageScaleType(scaleType)
+                .build();
     }
 
     /**

@@ -137,7 +137,9 @@ public class FrescoUtil {
     }
 
     public static void loadPicOnNet(SimpleDraweeView simpleDraweeView, @NonNull String imgUri, float aspectRatio) {
-        simpleDraweeView.setAspectRatio(aspectRatio);
+        if (aspectRatio > 0) {
+            simpleDraweeView.setAspectRatio(aspectRatio);
+        }
         simpleDraweeView.setImageURI(imgUri);
     }
 
